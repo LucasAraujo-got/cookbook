@@ -11,16 +11,24 @@ opcao = gets.to_i()
 
 while(opcao != 3) do
     if(opcao == 1)
+
         puts"Digite o nome da receita:"
         nome = gets.chomp()
-        receitas << nome
+
+        puts"Digite o tipo da receita:"
+        tipo = gets.chomp()
+
+        receitas << { nome: nome, tipo: tipo}
+
         puts
         puts"Receita #{nome} cadastrada com sucesso!"
         puts
+
     elsif(opcao == 2)
         puts"======== Receitas cadastradas com sucesso! ========"
-        puts receitas
-        puts
+        receitas.each do |receita|
+            puts "#{receita[:nome]} - #{receita[:tipo]}"
+        end
     else
         puts "Opção inválida"
     end
